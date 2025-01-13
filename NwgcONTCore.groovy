@@ -327,19 +327,6 @@ class NwgcONTCore {
             // record the signal folder inference source
             yaml['ontBamFolders'] = [settings['bamPass']['source'],settings['bamFail']['source']]
 
-            // message to pass to Samplify?
-            // we remove the update message as individual runs do not keep metric
-            if (yaml.containsKey('rabbitHost')) {
-                if (!(yaml['rabbitHost'].equals(''))) {
-                    yaml['rabbitHost'] = ''
-                }
-            }
-            if (yaml.containsKey('registration_url')) {
-                if (!(yaml['registration_url'].equals(''))) {
-                    yaml['registration_url'] = ''
-                }
-            }
-
             // localize results
             yaml['sampleDirectory'] = "${ontDataFolder}/${runAcqID}".toString()
             yaml['sampleQCDirectory'] = "${ontDataFolder}/${runAcqID}/qc".toString()
